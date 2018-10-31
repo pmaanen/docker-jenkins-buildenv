@@ -6,8 +6,7 @@ RUN apt-get update && \
                        libjack-jackd2-dev liblo-dev \
                        zip libx11-dev x11proto-video-dev libxv-dev \
                        libcwiid-dev ruby libboost1.55-dev libgtkmm-3.0-dev \
-                       libfreenect-dev swig libboost-system1.55-dev \
-		       openssh-server \
+                       libfreenect-dev swig libboost-system1.55-dev netcat \
                        software-properties-common java-common && \
     add-apt-repository -y ppa:octave/stable && \
     apt-get update && \
