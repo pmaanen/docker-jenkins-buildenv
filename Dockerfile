@@ -7,11 +7,12 @@ RUN apt-get update && \
                        zip libx11-dev x11proto-video-dev libxv-dev \
                        libcwiid-dev ruby libboost-dev libgtkmm-3.0-dev \
                        libfreenect-dev swig libboost-system-dev openssh-server \
-                       software-properties-common
-RUN wget https://cdn.azul.com/zulu/bin/zulu8.31.0.1-jdk8.0.181-linux_amd64.deb
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install java-common
-RUN dpkg -i zulu8.31.0.1-jdk8.0.181-linux_amd64.deb
-RUN DEBIAN_FRONTEND=noninteractive \
+                       software-properties-common && \
+    wget \
+    https://cdn.azul.com/zulu/bin/zulu8.31.0.1-jdk8.0.181-linux_amd64.deb && \
+    DEBIAN_FRONTEND=noninteractive apt-get -y install java-common && \
+    dpkg -i zulu8.31.0.1-jdk8.0.181-linux_amd64.deb && \
+    DEBIAN_FRONTEND=noninteractive \
     apt-get -y install octave-signal && \
     dpkg -i /liblsl*.deb && \
     rm /liblsl*.deb && \
