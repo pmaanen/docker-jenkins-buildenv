@@ -8,12 +8,11 @@ RUN apt-get update && \
                        libcwiid-dev ruby libboost-dev libgtkmm-3.0-dev \
                        libfreenect-dev swig libboost-system-dev openssh-server \
                        software-properties-common
-RUN add-apt-repository ppa:webupd8team/java && \
-    apt-get update
-RUN echo oracle-java8-installer shared/accepted-oracle-licence-v1-1 select true | /usr/bin/debconf-set-selections && \
-    DEBIAN_FRONTEND=noninteractive \
-    apt-get -y install oracle-java8-installer oracle-java8-set-default \
-               octave-signal && \
+RUN wget https://cdn.azul.com/zulu/bin/zulu8.31.0.1-jdk8.0.181-linux_amd64.deb
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install java-common
+RUN dpkg -i zulu8.31.0.1-jdk8.0.181-linux_amd64.deb
+RUN DEBIAN_FRONTEND=noninteractive \
+    apt-get -y install octave-signal && \
     dpkg -i /liblsl*.deb && \
     rm /liblsl*.deb && \
     mkdir -p /etc/mha
