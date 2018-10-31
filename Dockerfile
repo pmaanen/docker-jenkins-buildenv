@@ -11,5 +11,4 @@ RUN add-apt-repository ppa:webupd8team/java && \
 		       oracle-java8-installer oracle-java8-set-default && \
     dpkg -i /liblsl*.deb && \
     rm /liblsl*.deb && \
-    mkdir -p /etc/mha && \
-    apt-get -y purge autoconf automake autotools-dev libtool
+    mkdir -p /etc/mha
