@@ -8,12 +8,13 @@ RUN apt-get update && \
                        libcwiid-dev ruby libboost-dev libgtkmm-3.0-dev \
                        libfreenect-dev swig libboost-system-dev openssh-server \
                        software-properties-common && \
+    add-apt-repository -y ppa:octave/stable && \
+    apt-get update && \
     wget \
-    https://cdn.azul.com/zulu/bin/zulu8.31.0.1-jdk8.0.181-linux_amd64.deb && \
+      https://cdn.azul.com/zulu/bin/zulu8.31.0.1-jdk8.0.181-linux_amd64.deb && \
     DEBIAN_FRONTEND=noninteractive apt-get -y install java-common && \
-    dpkg -i zulu8.31.0.1-jdk8.0.181-linux_amd64.deb && \
+    dpkg -i zulu8.31.0.1-jdk8.0.181-linux_amd64.deb /liblsl*.deb && \
     DEBIAN_FRONTEND=noninteractive \
     apt-get -y install octave-signal && \
-    dpkg -i /liblsl*.deb && \
     rm /liblsl*.deb && \
     mkdir -p /etc/mha
