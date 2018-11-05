@@ -14,7 +14,8 @@ RUN apt-get update && \
      https://cdn.azul.com/zulu/bin/zulu8.31.0.1-jdk8.0.181-linux_i686.tar.gz &&\
     tar xf zulu8.31.0.1-jdk8.0.181-linux_i686.tar.gz -C /usr/local/stow && \
     rm -f zulu8.31.0.1-jdk8.0.181-linux_i686.tar.gz && \
-    cd /usr/local/stow && stow zulu8.31.0.1-jdk8.0.181-linux_i686 && \
+    cd /usr/local/stow && rm -rf zulu8.31.0.1-jdk8.0.181-linux_i686/man && \
+    stow zulu8.31.0.1-jdk8.0.181-linux_i686 && \
     DEBIAN_FRONTEND=noninteractive \
     apt-get -y install octave-signal && \
     dpkg -i /*.deb && \
