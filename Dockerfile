@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM i386/ubuntu:18.04
 COPY *.deb /
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive \
@@ -12,3 +12,4 @@ RUN apt-get update && \
     rm /*.deb && \
     mkdir -p /etc/mha && \
     apt-get -y purge autoconf automake autotools-dev libtool
+ENTRYPOINT ["/usr/bin/linux32","--"]
