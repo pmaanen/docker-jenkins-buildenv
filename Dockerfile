@@ -13,5 +13,5 @@ RUN apt-get update && \
     mkdir -p /etc/mha && \
     apt-get -y purge autoconf automake autotools-dev libtool
 RUN mv /bin/uname /bin/uname.orig && \
-  echo -e '#!/bin/sh\n/usr/bin/linux32 /bin/uname.orig "$@"' > /bin/uname && \
+  echo '#!/bin/sh\n/usr/bin/linux32 /bin/uname.orig "$@"' > /bin/uname && \
   chmod +x /bin/uname
