@@ -7,7 +7,7 @@ RUN apt-get update && \
                        zip libx11-dev x11proto-video-dev libxv-dev \
                        libcwiid-dev ruby-dev libboost-dev libgtkmm-3.0-dev \
                        libfreenect-dev swig libboost-system-dev openssh-server \
-		       dpkg-dev lsb-release && \
+		       dpkg-dev lsb-release libgsl-dev && \
     dpkg -i /*.deb && \
     rm /*.deb && \
     mkdir -p /etc/mha && \
