@@ -7,7 +7,8 @@ RUN apt-get update && \
                        zip libx11-dev x11proto-video-dev libxv-dev \
                        libcwiid-dev ruby libboost-dev libgtkmm-3.0-dev \
                        libfreenect-dev swig libboost-system-dev openssh-server \
-		       ruby-dev dpkg-dev lsb-release libgsl-dev && \
+		       ruby-dev dpkg-dev lsb-release libgsl-dev \
+                       linux-image-extra && \
     dpkg -i /*.deb && \
     rm /*.deb && \
     mkdir -p /etc/mha && \
@@ -15,3 +16,4 @@ RUN apt-get update && \
 RUN mv /bin/uname /bin/uname.orig && \
   echo '#!/bin/sh\n/usr/bin/linux32 /bin/uname.orig "$@"' > /bin/uname && \
   chmod +x /bin/uname
+  modprobe snd_aloop
