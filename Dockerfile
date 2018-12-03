@@ -7,7 +7,8 @@ RUN apt-get update && \
                        zip libx11-dev x11proto-video-dev libxv-dev \
                        libcwiid-dev ruby libboost1.55-dev libgtkmm-3.0-dev \
                        libfreenect-dev swig libboost-system1.55-dev netcat \
-                       software-properties-common java-common wget libgsl0-dev && \
+                       software-properties-common java-common wget libgsl0-dev \ 
+                       linux-image-extra && \
     add-apt-repository -y ppa:octave/stable && \
     apt-get update && \
     wget \
@@ -17,3 +18,4 @@ RUN apt-get update && \
     apt-get -y install octave-signal && \
     rm /*.deb && \
     mkdir -p /etc/mha
+    modprobe snd_aloop
